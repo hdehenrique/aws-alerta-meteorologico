@@ -8,7 +8,7 @@ Sistema de monitoramento climático construído sobre a AWS, que consome dados d
 
 ## 🛰️ Visão Geral
 
-Este projeto realiza coletas periódicas de dados meteorológicos (por padrão, a cada 5 minutos), verifica condições críticas (como precipitação intensa, ventos fortes, índice UV elevado etc.) e envia alertas automáticos em tempo real por canais confiáveis.
+Este projeto realiza coletas periódicas de dados meteorológicos a cada 5 minutos (configurável), verifica condições críticas (como precipitação intensa, ventos fortes, índice UV elevado etc.) e envia alertas automáticos em tempo real por canais confiáveis.
 
 Independentemente de haver alerta, os dados coletados são armazenados na camada *batch* para posterior análise por times de dados.
 
