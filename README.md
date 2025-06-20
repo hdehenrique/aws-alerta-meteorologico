@@ -2,7 +2,7 @@
 
 # 🌩️ aws-alertas-meteorologicos
 
-Sistema de monitoramento climático construído sobre a AWS**, que consome dados da API da Tomorrow.io, gera alertas em tempo real via SMS e e-mail com base em condições meteorológicas críticas, e armazena todos os dados em buckets do Amazon S3 organizados por camadas como raw e gold para posterior análise por times de dados.
+Sistema de monitoramento climático construído sobre a AWS, que consome dados da API da Tomorrow.io, gera alertas em tempo real via SMS e e-mail com base em condições meteorológicas críticas, e armazena todos os dados em buckets do Amazon S3 organizados por camadas como raw e gold para posterior análise por times de dados.
 
 ---
 
@@ -31,7 +31,7 @@ Independentemente de haver alerta, os dados coletados são armazenados na camada
 
 A arquitetura é dividida em duas camadas:
 
-### ⏱ Realtime
+### ⏱ RealTime
 - Consulta da Tomorrow.io a cada *X* minutos (configurável)
 - Avaliação das condições meteorológicas críticas
 - Disparo de **alertas** via SMS e e-mail com Amazon SNS
@@ -69,6 +69,7 @@ O sistema verifica, a cada ciclo de coleta, se os dados meteorológicos excedem 
 | Intensidade da chuva          | ≥ 20             | mm/h    |
 | Rajada de vento               | ≥ 22.2           | m/s     |
 | Velocidade do vento           | ≥ 13.9           | m/s     |
+
 
 
 > - **Rajada de vento:** 22.2 m/s equivale a 80 km/h  
