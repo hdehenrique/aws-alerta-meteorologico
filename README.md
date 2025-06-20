@@ -2,7 +2,7 @@
 
 # 🌩️ aws-alertas-meteorologicos
 
-Sistema de monitoramento climático construído sobre a AWS, que consome dados da API da Tomorrow.io, gera alertas em tempo real via SMS e e-mail com base em condições meteorológicas críticas, e armazena todos os dados em buckets do Amazon S3 organizados por camadas como raw e gold para posterior análise por times de dados.
+Sistema de monitoramento climático construído sobre a AWS, que consome dados da API da Tomorrow.io (https://www.tomorrow.io/weather-api/), gera alertas em tempo real via SMS e e-mail com base em condições meteorológicas críticas, e armazena todos os dados em buckets do Amazon S3 organizados por camadas como raw e gold para posterior análise por times de dados.
 
 ---
 
