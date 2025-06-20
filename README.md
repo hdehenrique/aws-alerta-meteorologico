@@ -29,7 +29,6 @@ Independentemente de haver alerta, os dados coletados são armazenados na camada
 
 ![image](https://github.com/user-attachments/assets/750f65a5-1899-45e7-94cc-28ea9446735d)
 
-
 A arquitetura é dividida em duas camadas:
 
 ### ⏱ Realtime
@@ -67,11 +66,16 @@ O sistema verifica, a cada ciclo de coleta, se os dados meteorológicos excedem 
 | Parâmetro                      | Limite de Alerta | Unidade |
 |-------------------------------|------------------|---------|
 | Probabilidade de precipitação | ≥ 80             | %       |
-| Intensidade da chuva          | ≥ 10             | mm/h    |
-| Rajada de vento               | ≥ 80             | km/h    |
-| Velocidade do vento           | ≥ 50             | km/h    |
+| Intensidade da chuva          | ≥ 20             | mm/h    |
+| Rajada de vento               | ≥ 22.2           | m/s     |
+| Velocidade do vento           | ≥ 13.9           | m/s     |
 
-> ⚙️ Esses valores são definidos em `variáveis de ambiente` e podem ser ajustados conforme a estratégia de operação.
+> ⚙️ Esses valores são definidos em `monitoramento_config.yaml` e podem ser ajustados conforme a estratégia de operação.
+>
+> - **Rajada de vento:** 22.2 m/s equivale a 80 km/h  
+> - **Velocidade do vento:** 13.9 m/s equivale a 50 km/h  
+> - **Probabilidade de precipitação:** em porcentagem (%)  
+> - **Intensidade da chuva:** em milímetros por hora (mm/h)
 
 ---
 
@@ -81,7 +85,5 @@ O sistema verifica, a cada ciclo de coleta, se os dados meteorológicos excedem 
 - **E-mail:** descrição completa com local, data/hora, variáveis medidas e links para dashboards (opcional)
 
 Ambos os canais são gerenciados via **Amazon SNS**, garantindo escalabilidade e alta entrega.
-
----
 
 
