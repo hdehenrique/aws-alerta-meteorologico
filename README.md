@@ -1,4 +1,3 @@
-
 ---
 
 # 🌩️ aws-alertas-meteorologicos
@@ -63,18 +62,16 @@ A arquitetura é dividida em duas camadas:
 
 ## 🚨 Regras de Alerta
 
-As regras estão definidas em `monitoramento_config.yaml`, por exemplo:
+O sistema verifica, a cada ciclo de coleta, se os dados meteorológicos excedem os seguintes limiares críticos:
 
-```yaml
-precipitationProbability: { threshold: 20 }  # mm/h
-windSpeed: { threshold: 50 }                # km/h
-windGust: { threshold: 80 }                 # km/h
-uvIndex: { threshold: 6 }
-visibility: { threshold: 1 }                # km
-temperature:
-  max: 35
-  min: -10
-```
+| Parâmetro                      | Limite de Alerta | Unidade |
+|-------------------------------|------------------|---------|
+| Probabilidade de precipitação | ≥ 80             | %       |
+| Intensidade da chuva          | ≥ 10             | mm/h    |
+| Rajada de vento               | ≥ 80             | km/h    |
+| Velocidade do vento           | ≥ 50             | km/h    |
+
+> ⚙️ Esses valores são definidos em `variáveis de ambiente` e podem ser ajustados conforme a estratégia de operação.
 
 ---
 
@@ -87,53 +84,4 @@ Ambos os canais são gerenciados via **Amazon SNS**, garantindo escalabilidade e
 
 ---
 
-## 📁 Estrutura do Projeto
 
-```
-aws-alertas-Meteorológicos/
-│
-├── monitoramento/
-│   ├── ingestion/
-│   ├── alerta/
-│   ├── monitoramento_config.yaml
-│   └── parseador_campos.py
-│
-├── batch/
-│   ├── ingestao/
-│   ├── processamento/
-│   └── exportacao/
-│
-├── infra/                      # IaC: Terraform/CDK
-├── tests/                      # Testes unitários
-├── docs/
-│   └── arquitetura.png
-│
-├── .gitignore
-├── requirements.txt
-└── README.md
-```
-
----
-
-## 🚀 Como Executar
-
-1. Clone o projeto:  
-```bash
-git clone https://github.com/seu-usuario/aws-alertas-Meteorologicos.git
-```
-
-2. Instale as dependências (ex: Python):  
-```bash
-pip install -r requirements.txt
-```
-
-3. Crie um `.env` com suas variáveis:
-```
-API_KEY_TOMORROWIO=xxxxxx
-SNS_TOPIC_ARN_EMAIL=arn:aws:sns:us-east-1:xxx:meu-topico-email
-SNS_TOPIC_ARN_SMS=arn:aws:sns:us-east-1:xxx:meu-topico-sms
-```
-
-4. Suba a infraestrutura com CDK ou Terraform
-
-5. Agende a execução via EventBridge
