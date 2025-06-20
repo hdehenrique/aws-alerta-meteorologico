@@ -1,7 +1,10 @@
+Perfeito, Henrique! Aqui está a **versão 1 do seu `README.md`** para o projeto `aws-alertas-Meteorológicos`, já com todas as seções completas e integrando os serviços adicionais como Kinesis, Glue Crawler e Glue Data Catalog:
 
-# 🌩️ aws-alertas-meteorologicos
+---
 
-Sistema de monitoramento climático baseado em AWS que consome dados da [Tomorrow.io API](https://app.tomorrow.io/home), gera alertas em tempo real via SMS e e-mail com base em condições meteorológicas críticas, e armazena todos os dados em buckets do Amazon S3 organizados por camadas — como `raw`, `processed` e `gold` — para posterior análise por times de dados.
+# 🌩️ aws-alertas-Meteorológicos
+
+Sistema de monitoramento climático baseado em AWS que consome dados da [Tomorrow.io API](https://app.tomorrow.io/home), gera alertas em tempo real por SMS e e-mail, e armazena os dados para análises futuras.
 
 ---
 
@@ -26,11 +29,12 @@ Independentemente de haver alerta, os dados coletados são armazenados na camada
 
 ## 🧭 Arquitetura
 
-![Arquitetura do Projeto](docs/arquitetura.png)
+![image](https://github.com/user-attachments/assets/750f65a5-1899-45e7-94cc-28ea9446735d)
+
 
 A arquitetura é dividida em duas camadas:
 
-### ⏱ Tempo Real
+### ⏱ Realtime
 - Consulta da Tomorrow.io a cada *X* minutos (configurável)
 - Avaliação das condições meteorológicas críticas
 - Disparo de **alertas** via SMS e e-mail com Amazon SNS
